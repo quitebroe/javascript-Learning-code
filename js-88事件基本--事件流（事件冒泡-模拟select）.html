@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 300px;
+			height: 300px;
+			background: #222;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBtn = document.getElementById('btn1');
+			var oDiv = document.getElementById('div1');
+            
+            oBtn.onclick=function(ev){
+            	var oEvent = ev||event;
+            	oDiv.style.display='block';
+            	//alert('按扭被点击');
+                //禁止事件冒泡，停止向父级传
+            	oEvent.cancelBubble=true;
+            };
+
+            document.onclick=function(){
+            	oDiv.style.display='none';
+            	//alert('document被点击');
+            };
+
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn1" value="显示">
+	<div id="div1"></div>
+</body>
+</html>

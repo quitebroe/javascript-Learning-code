@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		/*
+		* href 连接地址
+		* src 图片地址
+		*/
+        window.onload=function(){
+        	var img=document.getElementById('img');
+        	var link=document.getElementById('link');
+        	console.log(img.src); 
+        	console.log(link.href); 
+        	//默认取得绝对路径
+        	//http://localhost:8080/js/images/avatar_1.jpg
+        	//因为取到的值和标签当中的值是不一样的，所以不能用来做对比判断
+
+        }
+	</script>
+</head>
+<body>
+	<img src="images/avatar_1.jpg" id="img">
+	<p><a href="js-1.html" id="link">js</a></p>
+</body>
+</html>

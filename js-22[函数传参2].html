@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数传参</title>
+	<style type="text/css">
+		div{
+			background: #000;
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+	<script type="text/javascript">
+		function setDiv(name,value){
+			var oDiv=document.getElementById('oDiv');
+            oDiv.style[name]=value;
+		}
+	
+	</script>
+</head>
+<body>
+    <input type="button" value="变高" onclick="setDiv('width','200px')">
+    <input type="button" value="变宽" onclick="setDiv('height','200px')">
+    <input type="button" value="变色" onclick="setDiv('background','green')">
+    <input type="button" value="字体" onclick="setDiv('color','#fff')">
+    <div id="oDiv">你好：JavaScript</div>
+</body>
+</html>

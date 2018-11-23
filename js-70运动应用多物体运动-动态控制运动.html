@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态控制运动走向</title>
+	<style type="text/css">
+		div{
+			width: 250px;
+			height:250px;
+			background-color: red;
+			margin: 10px;
+			float: left;
+		  }	
+
+		div img{
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+	</style>
+	<script type="text/javascript">
+       
+    window.onload=function(){
+       	   var aDiv = document.getElementsByTagName('div');
+           aDiv[0].onmouseover=function(){
+              startMove(this,500);
+           }
+
+           aDiv[0].onmouseout=function(){
+              startMove(this,250);
+           }
+       };
+
+		 //var alpha=30; //设置一个淡入淡出的变量
+
+         function startMove(obj,iTarget){
+            //关闭自身物体的定时器
+            clearInterval(obj.timer);
+            //开启当前点中物体的定时器
+            obj.timer=setInterval(function(){
+                   //定义变量，计算一下速度
+                   //让目标减去这个alpha的值
+                   //除6让运动缓冲
+                   var speed = (iTarget-obj.offsetHeight)/6;
+                   spped=speed>0?Math.ceil(speed):Math.floor(speed);
+                   
+                   if (obj.offsetHeight == iTarget) {
+                   	 clearInterval(obj.timer);
+                   }else{
+                   	 obj.style.height=obj.offsetHeight+speed+'px';
+                   }
+
+            },30)
+         }
+
+	</script>
+</head>
+<body>
+	<div><img src="images/avatar_1.jpg"></div>
+	<div><img src="images/avatar_2.jpg"></div>
+	<div><img src="images/avatar_3.jpg"></div>
+	<div><img src="images/avatar_4.jpg"></div>
+</body>
+</html>

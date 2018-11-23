@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性操作</title>
+	<script type="text/javascript">
+		window.onload=function(){
+
+            var btn=document.getElementById('btn');
+            var text=document.getElementById('text');
+            var look=document.getElementById('look');
+            btn.onclick=function(){
+            	console.log(btn.type);
+            	console.log(btn['name']);
+            	console.log(btn.value);
+            	console.log(btn.style.background);
+            	console.log(text.value);
+                  
+                  //关于class值的猎取方式,不能直接使用保留字"class"
+                  //后面要加Name  也就是class = className
+                  console.log(text.className);
+
+            	btn.value="输出成功";
+            	look.innerHTML = '<p>'+text.value+'</p>'+look.innerHTML;
+
+            }
+
+		}
+	</script>
+</head>
+<body>
+	<input type="button" name="btn" id="btn" style="background:red;color:#fff;font-size:16px;" value="提交">
+	<input type="text" name="text" id="text" class="Classtext" value="一条简单的文本信息">
+      <div id="look"></div>
+</body>
+</html>

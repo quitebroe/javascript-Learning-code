@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+       window.onload=function()      
+		{
+			 var oTxt1=document.getElementById('txt1');
+			 var oTxt2=document.getElementById('txt2');
+			 var oBtn=document.getElementById('btn');
+
+			 oBtn.onclick=function(){
+                  var re=/中国|百度|谷歌|狗日/g;
+                  oTxt2.value=oTxt1.value.replace(re,'****');
+			 }
+		}
+
+	</script>
+</head>
+<body>
+	<textarea id="txt1" rows='10' cols="50"></textarea>
+	<input type="button" id="btn" value="过滤" name="">
+	<textarea id="txt2" rows='10' cols="50"></textarea>
+</body> 
+</html>

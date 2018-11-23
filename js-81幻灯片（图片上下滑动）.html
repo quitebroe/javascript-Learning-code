@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="js-81.css">
+	<script type="text/javascript" src="move3.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oPlay=document.getElementById('play');
+			var aOlBtn=oPlay.getElementsByTagName('ol')[0];
+			var aOlBtnLi=aOlBtn.getElementsByTagName('li');
+
+			var oUl=oPlay.getElementsByTagName('ul')[0];
+			var oUlLi=oUl.getElementsByTagName('li');
+			
+            var now=0;
+            for (var i = 0; i <aOlBtnLi.length; i++) {
+            	aOlBtnLi[i].index=i;
+            	aOlBtnLi[i].onclick=function(){
+
+            		now=this.index;
+                    tab();
+                   
+            	};
+
+            };
+
+            function tab(){
+        	    for (var i = 0;  i <aOlBtnLi.length; i++) {
+        			aOlBtnLi[i].className="";
+        		}
+        		aOlBtnLi[now].className='active';
+                var nTop = 376*now;
+                //oUl.style.top=-nTop+"px";
+                startMove(oUl,{top:-nTop},function(){
+                	console.log(-nTop);
+                })
+            };
+
+            function next(){
+            	now++;
+            	if (now==aOlBtnLi.length) {
+            		now=0;
+            	}
+            	tab();
+            }
+
+            var timer=setInterval(next,2000);
+
+            oPlay.onmouseover=function(){
+            	clearInterval(timer);
+            }
+
+
+            oPlay.onmouseout=function(){
+            	timer=setInterval(next,2000);
+            }
+
+		}
+	</script>
+</head>
+<body>
+	<div class="play" id="play">
+		<ol>
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+		</ol>
+		<ul>
+			<li>
+				<a href="javascript:;">
+					<img src="images/move3/akito.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<img src="images/move3/Berserk.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<img src="images/move3/EVA.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<img src="images/move3/Gintama.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<img src="images/move3/SteinsGate.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<img src="images/move3/SummerWars.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<img src="images/move3/Unicorn.jpg" alt="">
+				</a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

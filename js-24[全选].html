@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单全选，取消，反选操作</title>
+	<script type="text/javascript">
+		 window.onload=function(){
+
+             var btnAll=document.getElementById('btnAll');
+             var btnCancel=document.getElementById('btnCancel');
+             var btnSelected=document.getElementById('btnSelected');
+
+
+             var form=document.getElementById('form');
+             var inputs=form.getElementsByTagName('input');
+
+             //全选
+             btnAll.onclick=function(){
+              	for (var i =0 ; i < inputs.length; i++) {
+                   	 inputs[i].checked=true;
+             	};
+             };
+
+
+
+             //取消
+             btnCancel.onclick=function(){
+              	for (var i =0 ; i < inputs.length; i++) {
+                   	 inputs[i].checked=false;
+             	};
+             };
+
+
+
+             //反选
+             btnSelected.onclick=function(){
+              	for (var i =0 ; i < inputs.length; i++) {
+                  
+                   if (inputs[i].checked==true) {
+                   	 inputs[i].checked=false;
+                   }else{
+                     inputs[i].checked=true;
+                   }
+             		
+             	};
+             };
+
+		 }
+	</script>
+</head>
+<body>
+	<input type="button" id="btnAll" name="" value="全选">
+	<input type="button" id="btnCancel" name="" value="取消">
+	<input type="button" id="btnSelected" name="" value="反选">
+	<form id="form">
+		<input type="checkbox" value="1"><br />
+		<input type="checkbox" value="2"><br />
+		<input type="checkbox" value="3"><br />
+		<input type="checkbox" value="4"><br />
+		<input type="checkbox" value="1"><br />
+		<input type="checkbox" value="2"><br />
+		<input type="checkbox" value="3"><br />
+		<input type="checkbox" value="4"><br />
+	</form>
+</body>
+</html>

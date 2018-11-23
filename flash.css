@@ -1,0 +1,141 @@
+/*
+* @Author: 应煜鑫
+* @Date:   2017-11-10 23:18:40
+* @Last Modified by:   应煜鑫
+* @Last Modified time: 2017-11-11 17:44:49
+*/
+html,body{
+	padding: 0;
+	margin:0;
+}
+ul,li{
+	padding: 0;
+	margin:0;
+	list-style: none;
+}
+
+#banner{
+	width: 400px;
+	height: auto;
+	overflow: hidden;
+	margin:50px auto;
+	position: relative;
+}
+#banner .prev,#banner .next{
+    z-index: 1001;
+	position: absolute;
+	top: 0;
+	display: block;
+	width: 50%;
+	height: 400px;
+	filter:alpha(opacity=0);
+    opacity:0;
+}
+
+#banner .prev{
+	left: 0;
+	background:url('images/nav_paddles_down_01.png') left center no-repeat;
+}
+#banner .next{
+	right: 0;
+    background:url('images/nav_paddles_down_02.png') right center no-repeat;
+}
+
+#banner .markprev,#banner .marknext{
+    z-index: 1000;
+	position: absolute;
+	top: 0;
+	width: 50%;
+	height: 400px;
+	filter:alpha(opacity=0);
+    opacity:0;
+}
+
+#banner .markprev{
+	left: 0;
+	background:green;
+}
+#banner .marknext{
+	right: 0;
+    background:red;
+}
+
+.bigimg{
+   width:400px;
+   height: 400px; 
+   position: relative;
+}
+
+.bigimg li{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width:400px;
+    height: 400px; 
+}
+
+.bigimg li span{
+	z-index: 1002;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: none;
+	width: 100%;
+	line-height: 35px;
+	text-align: center;
+	background-color: #000;
+	filter: alaha(opacity: 50);
+	opacity: 0.5;
+}
+
+.bigimg li strong{
+	z-index:1003;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: none;
+	width: 100%;
+	line-height: 35px;
+	text-align: center;
+	color: #fff;
+	background-color: #000;
+	filter: alaha(opacity: 50);
+	opacity: 0.5;
+}
+
+.bigimg img{
+	display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+.divsmall{
+	position: relative;
+	width: 100%;
+    height: 100px; 
+    background-color: #ddd
+}
+
+.smallimg{
+	position: absolute;
+	left: 0;
+   overflow: hidden;
+
+}
+
+.smallimg li{
+	width: 90px;
+	height: 90px;
+	float: left;
+	margin:5px;
+	filter:alpha(opacity=30);
+    opacity:0.3;
+
+}
+
+.smallimg li img{
+	display: block;
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="js-82.css">
+    <style type="text/css">
+
+        div{
+            border: 1px solid #ddd;
+            margin: 10px auto;
+            width: 600px;
+            height: 252px;
+            overflow: hidden;
+            padding: 0px 0;   
+            position: relative;
+        }
+
+         ul{
+            width: 100%;
+            height:252px;
+            position: absolute;
+            top: 0px;
+        }
+
+         ul li{
+            width: 90%;
+            margin: 0 auto;
+            font-size: 14px;
+            border-bottom: 1px dashed #ddd;
+            padding:10px 0;
+        }
+
+    </style>
+    <script type="text/javascript" src="move3.js"></script>
+    <script type="text/javascript">
+    	window.onload=function(){
+            var oDiv=document.getElementsByTagName('div')[0];
+    		var oUl=document.getElementsByTagName('ul')[0];
+    		var oUlLi=document.getElementsByTagName('li');
+            
+
+            oUl.innerHTML=oUl.innerHTML+oUl.innerHTML; 
+            oUl.style.height=oUlLi[0].offsetHeight*oUlLi.length+"px";
+
+
+
+               var timer=null;
+               function text(){
+                    timer=setInterval(function(){
+
+                         console.log(oUl.offsetTop<=-oUl.offsetHeight/2);
+                         if (oUl.offsetTop<=-oUl.offsetHeight/2) {
+                            oUl.style.top='0px';
+                         }else{
+                            oUl.style.top=oUl.offsetTop-(oUlLi[0].offsetHeight/24)+'px';
+                         };
+
+                    },30);
+               };
+
+               text();
+               oDiv.onmouseover=function(){
+                   clearInterval(timer);
+               }
+               oDiv.onmouseout=function(){
+                   text();
+               };
+
+    	}
+    </script>
+</head>
+
+<body>
+<div>
+    <ul>
+        <li>
+            <a href="javascript:;" target="_blank">1682亿元，天猫“双11”展现中国巨大消费能力</a></li>
+        <li>
+            <a href="javascript:;" target="_blank">台湾宜兰县海域发生3.6级地震 震源深度55千米</a></li>
+        <li>
+            <a href="javascript:;" target="_blank">预售商品价格比双11还高？ 客服：没说一定更便宜</a></li>
+        <li>
+            <a href="javascript:;" target="_blank">忠诚守卫真情相伴 武警官兵告别广电 </a></li>
+        <li>
+            <a href="javascript:;" target="_blank">震撼！中国翼装飞行员首次成功穿越定点热气球</a></li>
+        <li>
+            <a href="javascript:;" target="_blank">北京平谷一金矿遭非法盗采突发矿难致6死 8人获刑</a></li>
+    </ul>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style type="text/css">
+	    body{
+	    	margin: 0;
+	    	padding: 0;
+	    }
+		#div1{
+			width:100px;
+			height:100px;
+			background-color: red;
+		}
+
+		#div2{
+			width: 1px;
+			height: 100px;
+			background-color: #000;
+			position: absolute;
+			left: 1000px;
+			top: 0;
+		}
+    </style>
+    <script type="text/javascript" src="move2.js"></script>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oDiv1=document.getElementById('div1');
+		oDiv1.onmouseover=function(){
+			startMove(oDiv1,'width',1000,function(){
+				alert('123');
+			})
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+
+</body>
+</html>

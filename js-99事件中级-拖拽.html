@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#div1{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+		}
+	</style>
+
+	<script type="text/javascript">
+		//鼠标按下
+		//鼠标抬起
+		//鼠标移动
+
+		window.onload=function(){
+           //console.log(window.screen.availWidth);
+		   var oDiv=document.getElementById('div1');
+           var disX=0;
+           var disY=0;
+           //alert(oDiv);
+
+		   oDiv.onmousedown=function(ev){
+             var oEvent = ev||event;
+             //pos=getpos(oEvent);
+             //鼠标的位置减去DIV的位置
+
+             if (oDiv.setCapture) {
+
+             disX=oEvent.clientX-oDiv.offsetLeft;
+             disY=oEvent.clientY-oDiv.offsetTop;
+             
+	           oDiv.onmousemove=function(ev){
+	           	 var oEvent = ev||event;
+                 var l=oEvent.clientX-disX;
+                 var t=oEvent.clientY-disY;
+                 
+	             oDiv.style.left=l+'px';
+	             oDiv.style.top =t+'px';
+
+	           };
+
+		       oDiv.onmouseup=function(){
+			    	oDiv.onmousemove=null;
+			    	oDiv.onmouseup=null;
+
+			    	//在使用了事件捕获之后，在鼠标抬起的时候。需要释放这个事件捕获，不然的话，无法进行任何操作
+			    	oDiv.releaseCapture;
+			   };
+               
+               //在IE7下使用事件捕获，确保所有的事件都指向DIV
+               oDiv.setCapture();
+
+               return false;
+
+             }else{
+	             disX=oEvent.clientX-oDiv.offsetLeft;
+	             disY=oEvent.clientY-oDiv.offsetTop;
+	             
+		           document.onmousemove=function(ev){
+		           	 var oEvent = ev||event;
+	                 var l=oEvent.clientX-disX;
+	                 var t=oEvent.clientY-disY;
+	                 
+		             oDiv.style.left=l+'px';
+		             oDiv.style.top =t+'px';
+
+		           };
+
+			       document.onmouseup=function(){
+				    	document.onmousemove=null;
+				    	document.onmouseup=null;
+
+	
+				   };
+	               
+	  
+
+	               return false;
+	             }
+
+
+		    };
+	
+};
+	</script>
+</head>
+<body>
+64764646464<br>
+fsdfsfew
+<div id="div1">7567575</div>
+5765757567657
+</body>
+</html>

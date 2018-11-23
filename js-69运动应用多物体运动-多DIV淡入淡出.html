@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片淡入淡出</title>
+	<style type="text/css">
+		div{
+			width: 250px;
+			height:250px;
+			background-color: red;
+			margin: 10px;
+			float: left;
+			opacity: 0.3;
+            filter:alpha(opacity:30);
+		  }	
+
+		div img{
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+	</style>
+	<script type="text/javascript">
+       
+       window.onload=function(){
+       	   var aDiv = document.getElementsByTagName('div');
+           
+           for(var i=0;i<aDiv.length;i++){
+              //所有的多物体运动、所有东西都不能存在共用的情况
+              aDiv[i].alpha=30;	//设置一个淡入淡出的变量
+
+           	  aDiv[i].onmouseover=function(){
+           	  	startMove(this,100);
+           	  };
+
+        	  aDiv[i].onmouseout=function(){
+           	  	startMove(this,30);
+           	  };
+           };
+       };
+
+		 //var alpha=30; //设置一个淡入淡出的变量
+
+         function startMove(obj,iTarget){
+            //关闭自身物体的定时器
+            clearInterval(obj.timer);
+            //开启当前点中物体的定时器
+            obj.timer=setInterval(function(){
+                   //定义变量，计算一下速度
+                   //让目标减去这个alpha的值
+                   //除6让运动缓冲
+                   var speed = (iTarget-obj.alpha)/6;
+                   spped=speed>0?Math.ceil(speed):Math.floor(speed);
+                   
+                   if (obj.alpha == iTarget) {
+                   	 clearInterval(obj.timer);
+                   }else{
+                   	 obj.alpha+=speed;
+                   	 obj.style.filter='alpha(opacity:'+obj.alpha+')';
+                   	 obj.style.opacity=obj.alpha/100;
+                   }
+
+            },30)
+         }
+
+	</script>
+</head>
+<body>
+	<div><img src="images/avatar_1.jpg"></div>
+	<div><img src="images/avatar_2.jpg"></div>
+	<div><img src="images/avatar_3.jpg"></div>
+	<div><img src="images/avatar_4.jpg"></div>
+</body>
+</html>

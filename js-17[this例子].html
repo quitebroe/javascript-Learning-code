@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态点击修改当前dom元素背景色</title>
+	<script type="text/javascript">
+        /*
+           点击对应的LI、变成指定的颜色
+        */
+         window.onload=function(){
+         	//var lis=document.getElementsByTagName('li');
+         	var lis=document.querySelectorAll('li');
+         	//console.dir(lis);
+         	console.dir(lis);
+            //批量操作的时候，可以使用FOR，做同样的工作
+         	for (var i = 0 ; i<lis.length; i++) {
+                lis[i].onclick=function(){
+                	console.log(i);
+	               //lis[i].style.background='#990000';
+	         	   //lis[i].style.color='#fff';	
+	         	   //以上这样的写法是错的，会报错的
+	         	   //因为这个时候FOR循环已经结束了！得到了最终的I值
+	         	   //循环里填加了点击事件（onclick），需要用到循环点击事件里的变量I的值，是循环结束的值。不是每个对应的值
+	         	   //所以这个时候要加一个新的知识点  this 
+	         	   //this 指的是当前对像，是个关键词，不能用作变量名，this获取的值只能读，不能改写！。也就是只能用
+	         	   //this 如果在函数外用，是指向window的
+	         	   //this 如果是在函数内
+	         	      //  函数被直接调用的，还是指向window的
+	         	      //  如果是在document下使用的时候，是被事件调用的，并且是以赋值的形式,在这个时候this谁用了就指向谁
+	         	   this.style.background='#990000';
+	         	   this.style.color='#fff';	
+                };
+         	}
+         }
+
+	</script>
+</head>
+<body>
+	 <ul>
+	 	<li>红</li>
+	 	<li>黄</li>
+	 	<li>蓝</li>
+	 	<li>白</li>
+	 	<li>黑</li>
+	 	<li>绿</li>
+	 </ul>
+</body>
+</html>

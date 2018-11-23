@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/* #color>li:first-child{
+			background: red;
+		}
+		#color>li:nth-child(5){
+			background: blue;
+		} */
+
+	</style>
+	<script type="text/javascript">
+		//querySelector 通过css选择器，取得元素
+		//可以取得一个元素，如果有多个，只取第一个。
+        //可以从整个文档（document）获取，也可以从指定ID内获取
+         
+        window.onload=function(){
+             var li=document.querySelector('#color li:nth-child(3)');
+             li.style.background='blue';
+             console.log(li);
+             
+
+             //获取Class类
+
+             var c2=document.querySelector('.c2');
+             c2.style.background="#000";
+             c2.style.color='#fff';
+
+
+        };
+
+	</script>
+</head>
+<body>
+	<ul class="c2">
+        <li>1</li>
+        <li class="list">2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+	</ul>
+	<ul id="color">
+        <li>1</li>
+        <li class="list">2</li>
+        <li>3</li>
+        <li>4</li>
+        <li class="list">5</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文档碎片</title>
+	<script type="text/javascript">
+		//文档碎片
+		//文档碎片可以提高DOM操作性能（理论上）
+		//文档碎片原理
+		//document.createDocumentFragment()
+        window.onload=function(){
+          var oUl=document.getElementById('ul1');
+          
+          //创建文档碎片
+          var oFrag=document.createDocumentFragment();
+           
+          for (var i = 0; i < 100; i++) {
+          	 var oLi=document.createElement('li');
+          	 //下面的效果是出现一个展示一个
+          	 // oUl.appendChild(oLi);
+
+          	 //相当于把100个节点先全部存入内容
+          	 oFrag.appendChild(oLi); 
+          }
+             //最后在全部同时绚烂到页面上
+             //在低版本下IE6-8的可以提交效率
+             //在高版本下没什么实际用处
+             oUl.appendChild(oFrag);
+        }
+	</script>
+</head>
+<body>
+	<ol id="ul1">
+
+	</ol>
+</body>
+</html>

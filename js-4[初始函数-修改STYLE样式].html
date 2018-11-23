@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>初始函数2</title>
+		<script>
+       window.onload=function(){
+       	    var btn=document.getElementById('btn');
+       	    var btn1=document.getElementById('btn1');
+       	    var box=document.getElementById('box');
+            btn.onclick=function(){
+	            SetStyle();
+            }
+            btn1.onclick=function(){
+	            SetStyle();
+            }
+       }
+
+
+       function SetStyle(){
+            box.style.background="red";
+            box.style.width="100px";
+            box.style.height="100px";
+       }
+
+	</script>
+</head>
+<body>
+	    <button id="btn">呵呵</button>
+    <button id="btn1">哈哈</button>
+    <div id="box"></div>
+</body>
+</html>

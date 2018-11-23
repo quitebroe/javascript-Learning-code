@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-23[style和Css的关系]</title>
+	<style type="text/css">
+		#oDiv{
+			background: #000;
+			width: 100px;
+			height: 100px;
+		}
+		.SetStyle{
+			border: 10px solid red;
+			color: #fff;
+		}
+	</style>
+	<script type="text/javascript">
+		function setDiv(value){
+			var oDiv=document.getElementById('oDiv');
+            oDiv.className=value;
+		}
+	</script>
+</head>
+<body>
+    <input type="button" value="边框" onclick="setDiv('SetStyle')">
+    <div id="oDiv">你好：JavaScript</div>
+</body>
+</html>

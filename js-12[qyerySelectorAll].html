@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/* #color>li:first-child{
+			background: red;
+		}
+		#color>li:nth-child(5){
+			background: blue;
+		} */
+
+	</style>
+	<script type="text/javascript">
+		//querySelectorAll 通过css选择器，取得一组全部数据
+        //可以从整个文档（document）获取，也可以从指定ID内获取
+         
+        window.onload=function(){
+             var lis=document.querySelectorAll('li');
+             console.dir(lis);
+             
+             for (var i = 0; i < lis.length ; i++) {
+                 lis[i].style.background='blue';
+             }
+
+             
+             //通过指定ID主语，选择元素范围
+             var color=document.getElementById('color');
+             var lis2=color.querySelectorAll('li');
+             console.dir(lis2);
+
+             for (var i =0; i < lis2.length ; i++) {
+                 lis2[i].style.background='red';
+             }
+
+             //也可以通过css指定，还是通过整个文档（document）
+             //例：u效果和指定主语一致
+             var lis3=document.querySelectorAll('#color li');
+             console.dir(lis3);
+
+             
+             //取得嵌套内的元素
+             var lis4=document.querySelectorAll('.c2 ul li');
+             console.dir(lis4);
+             //lis4.length-1  表示取得集合或数组内的最后一个元素
+             lis4[lis4.length-1].style.background="#ffff00";
+
+
+             //获取所有的.list元素
+             var lis5=document.querySelectorAll('.list');
+             lis5[0].style.background="#990000";
+             console.dir(lis5);
+              for (var i = 0; i < lis5.length; i++) {
+                  lis5[i].style.background="#990000";
+              }
+        };
+
+	</script>
+</head>
+<body>
+	<ul class="c2">
+        <li>1</li>
+        <li class="list">2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>
+           <ul>
+               <li>1</li>
+               <li>2</li>
+               <li>3</li>
+           </ul>
+        </li>
+	</ul>
+	<ul id="color">
+        <li>1</li>
+        <li class="list">2</li>
+        <li>3</li>
+        <li>4</li>
+        <li class="list">5</li>
+	</ul>
+</body>
+</html>

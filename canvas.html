@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="canvas" width="500" height="500" style="background: #ddd"></canvas>
+    <script type="text/javascript">
+    	var canvas = document.getElementById('canvas');
+    	var context = canvas.getContext('2d');
+    	// context.fillRect(20,20,120,60); //实心
+    	// context.strokeRect(20,200,200,200); //空心
+    	// context.beginPath(); //开始设置路径
+     //    context.moveTo(0,0);
+     //    context.lineTo(500,500);
+     //    context.stroke();
+
+     //   	context.beginPath(); //开始设置路径
+     //    context.moveTo(0,500);
+     //    context.lineTo(500,0);
+     //    context.stroke();     
+
+        // context.beginPath(); //开始设置路径
+        // context.moveTo(100,50);
+        // context.lineTo(100,200);
+        // context.lineTo(250,200);
+        // context.lineTo(100,50);
+        
+        var image = new Image();
+        image.src = 'https://www.baidu.com/img/bd_logo1.png';
+        image.onload=function(){
+        	context.drawImage(image,50,50,250,100);
+        }
+
+
+
+    </script>
+</body>
+</html>

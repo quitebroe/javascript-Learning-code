@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script type="text/javascript">
+    function show(){
+        alert(this);
+    }
+    
+
+    show(); //简写
+    show.call();//完整的写法
+    show.call(12);// call可以改变this的对像
+
+ 
+
+    function show2(a,b){
+        alert('this是'+this+'\na是:'+a+'\nb是'+b);
+    }
+    
+    show2(12,4);
+    show2.call('abc',12,4);
+</script>
+</head>
+<body>
+	
+</body>
+</html>

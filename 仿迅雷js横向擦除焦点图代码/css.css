@@ -1,0 +1,100 @@
+/*
+* @Author: 应煜鑫
+* @Date:   2017-11-12 13:05:21
+* @Last Modified by:   应煜鑫
+* @Last Modified time: 2017-11-14 15:48:54
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, 
+strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, 
+tfoot, thead, tr, th, td ,textarea { margin:0; padding:0;  }
+address,cite,dfn,em,var, i {font-style:normal;}
+body {font-size: 16px; line-height: 1.5; font-family:'Microsoft Yahei','simsun','arial','tahoma';  color: #222; background: #eee; }
+table { border-collapse:collapse; border-spacing:0; }
+h1, h2, h3, h4, h5, h6, th { font-size: 100%; font-weight: normal; }
+button,input,select,textarea{font-size:100%;}
+fieldset,img{border:0;}
+a { text-decoration: none; color: #666; background: none }
+ul, ol { list-style: none; }
+:focus{ outline:none;}
+.clearfix{ clear: both; content: ""; display: block; overflow: hidden }
+.clear{clear: both;}
+
+html,body{
+	background: #999
+}
+
+#play{
+	width:990px;
+	height:550px;
+	overflow: hidden;
+	margin: 50px auto; 
+	background-color: #000;
+	position: relative;
+}
+
+#play ul{
+	border: 5px solid #333;
+	position: relative;
+	height: 376px;
+	padding: 0;
+}
+
+#play ul li{
+	position: absolute;
+	top: 0px;
+	left: 0;
+	width: 100%;
+    height: 376px;
+    display: none
+}
+
+#play ul li img{
+	width: 100%;
+	height: 376px;
+}
+
+#play ol{
+	width:973px;
+	bottom:20px;
+	left: 8px;
+	position: absolute;
+	z-index: 999;
+}
+#play ol li{
+	float: left;
+	width: 129px;
+	height: 120px;
+	background-color: #696969;
+	color: #fff;
+	text-align: center;
+	border:5px solid #696969 ;
+	cursor: pointer;
+	filter: aplha(opacity: 30);
+	opacity: 0.3;
+}
+#play ol li img{
+	display: block;
+	margin: 0;
+}
+#play ol li strong{
+    display: block;
+	margin: 3px 0 0 0; 
+	font-size: 16px;
+	padding: 0;
+}
+#play ol li span{
+	display: block;
+	margin: 0px 0 0 0; 
+	padding: 0;
+	font-size: 12px;
+}
+#play ol li.active{
+	background-color:#810094;
+	color: #fff;
+	font-weight: bold;
+	margin:0px 0px 0 0px;
+	border:5px solid #810094 ;
+	filter: aplha(opacity: 100);
+	opacity: 1;
+}
+

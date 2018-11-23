@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+     <script type="text/javascript">
+     	//取出字符串的所有数字
+     	var str='5ddddd543vb$%^c64411435x%$#%^&fsjkdjsads432';
+     	//非正则方式
+     	var arr=[];
+     	var tmp;
+
+     	for (var i = 0; i < str.length; i++) {
+     		if (str.charAt(i)>='0' && str.charAt(i)<='9') {
+                tmp+=str.charAt(i);
+     		}else{
+     			if (tmp) {
+     				arr.push(tmp);
+     				tmp='';
+     			}
+     		}
+     	}
+
+		if (tmp) {
+			arr.push(tmp);
+			tmp='';
+		}  
+     	//alert(arr);
+  
+        //使用正则
+        alert(str.match(/\d+/g));//出字符串的所有数字
+        alert(str.match(/[a-z]+/g));//出字符串的所有字母
+     </script>
+</head>
+<body>
+	
+</body>
+</html>

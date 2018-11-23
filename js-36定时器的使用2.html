@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定时期的使用</title>
+	<script type="text/javascript">
+		//定时器的作用
+	    //什么是定时器
+        function show(){
+        	alert('a');
+        }
+        //setInterval() 间隔型，设置间隔时间，无限次循环
+	    //setInterval(show,1000);
+
+        //setTimeout() 延时器，间隔多少时间之后执行这个函数
+	    //setTimeout(show,1000);
+
+        //定时器的开启和关闭
+        window.onload=function(){
+        	var btn1=document.getElementById('btn1');
+        	var btn2=document.getElementById('btn2');
+        	var box=document.getElementById('box');
+            var closeTime=null;
+            var i=1;
+
+            btn1.onclick=function(){
+            	box.style['font-size']='36px';
+            	box.style['color']='red';
+            	box.style['font-family']='微软雅黑';
+            	//点击事件之后。开启定时器，每秒加1
+            	closeTime=setTimeout(function(){
+                       box.innerHTML='<img src=images/avatar_3.jpg />';
+            	},1000)
+            };
+
+            btn2.onclick=function(){
+            	 //关闭名为：closeTime的定时器
+                 clearTimeout(closeTime);
+            };
+
+        }
+	</script>
+</head>
+<body>
+	<input id='btn1' type="button" value="开启">
+	<input id='btn2' type="button" value="关闭">
+	<div id="box"></div>
+</body>
+</html>

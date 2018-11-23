@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#div1{
+			width: 200px;
+			height: 200px;
+			background:red;
+		}
+	</style>
+	<script type="text/javascript">	
+	//1，返回值
+	function show(){
+		return 12;
+	};
+    console.log(show());
+
+	//2，参数
+	function show2(a,b){
+		return a+b;
+	};
+    console.log(show2(66,33));
+
+
+	//3 arguments  //	可变的参数，不定的参数
+	//1、在JavaScript中，arguments对象是比较特别的一个对象，实际上是当前函数的一个内置属性。arguments非常类似Array，但实际上又不是一个Array实例。可以通过如下代码得以证实（当然，实际上，在函数funcArg中，调用arguments是不必要写成funcArg.arguments，直接写arguments即可）。
+	function args(){
+		var result=Math.random();//结果为0-1间的一个随机数(包括0,不包括1) 
+		for(var i=0 ;i<arguments.length ;i++){
+			result=result*arguments[i];
+		}
+		return result;
+	};
+    console.log(args(360));
+     
+    function sum(){
+        return arguments.length;
+    }
+    
+    console.log(sum(1,4,5,6,32,5));
+
+ 
+    //CSS函数 arguments用法 
+    function cssarg(){	 
+         if (arguments.length == 2) {
+             return arguments[0].style[arguments[1]];
+         }else{
+             arguments[0].style[arguments[1]]=arguments[2];
+         }
+    }
+    //CSS函数
+    function css(object,name,value){
+         if (object==2) {
+             return object.style[name];
+         }else{
+             object.style[name]=value;
+         }
+    }
+
+    window.onload=function(){
+    	var objectDiv=document.getElementById('div1');
+    	//获取数据
+    	console.log(cssarg(objectDiv,"background"));
+    	//console.log(css(objectDiv,"width","500px"));
+    	//设置数据
+    	css(objectDiv,"background","orange");
+    }
+
+
+	</script>
+</head>
+<body>
+<div id="div1" style="width: 200px;height: 200px;background:red;"></div>
+</body>
+</html>

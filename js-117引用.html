@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var arr1=[1,2,3];
+		var arr2=[] //改引用为复制数组1
+
+           for (var i = 0; i < arr1.length; i++) {
+               arr2.push(arr1[i]);
+           }
+
+		   arr2.push(4);
+
+		alert(arr1);   //123
+		alert(arr2);   //1234
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

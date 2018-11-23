@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload=function(){
+            //getElementsByTagName  用于取得元素标签
+            //数据类似为集合。可以称为类数组
+            //仅有length和下标
+
+			/*
+              页面中所有的LI
+			*/
+			var tagNamelis=document.getElementsByTagName('li');
+			console.dir(tagNamelis);
+            
+
+            /*
+              指定ID下面的区域LI
+            */
+            var color=document.getElementById('color');
+			var tagNamelis1=color.getElementsByTagName('li');
+			
+			console.dir(tagNamelis1);
+			
+
+			/*
+             批量操作，用for
+			*/
+            for (var i = 0; i < tagNamelis.length; i++) {
+            	tagNamelis[i].style.color="red";
+            }
+
+            for (var i = 0; i < tagNamelis1.length; i++) {
+            	tagNamelis1[i].style.color="blue";
+            }
+
+		}
+	</script>
+</head>
+<body>
+	<ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+	</ul>
+	<ul id="color">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+	</ul>
+</body>
+</html>

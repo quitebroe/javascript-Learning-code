@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style type="text/css">
+	    body{
+	    	margin: 0;
+	    	padding:0px;
+	    }
+        #div{
+        	position: fixed;
+        	width:50px;
+        	height:50px;
+        	bottom: 0;
+        	right: 0;
+        	z-index:99;
+        	background-color: red;
+        }
+
+        #left{
+            position: absolute;
+            width: 150px;
+            height: 50px;
+            right:-150px;
+            bottom:0;
+            background-color: blue;
+            z-index:0;
+        }
+        #box{
+            position: absolute;
+            width: 200px;
+            height:500px;
+            right:0px;
+            bottom:-500px;
+            background-color: green;
+            z-index:1;
+        }
+    </style>
+    <script type="text/javascript" src="move2.js"></script>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oDiv=document.getElementById('div');
+		var oLeft=document.getElementById('left');
+		var oBox=document.getElementById('box');
+        
+        oDiv.onclick=function(){
+        	//alert(oLeft);
+            startMove(oLeft,'right',50,function(){
+            	startMove(oBox,'bottom',50)
+            })
+             
+        };
+
+	};
+	</script>
+</head>
+<body>
+  <div id="div">
+  	 <div id="box"></div>
+  	 <div id="left"></div>
+  </div>
+</body>
+</html>

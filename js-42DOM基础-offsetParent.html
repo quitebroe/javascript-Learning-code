@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>offsetParent</title>
+	<style type="text/css">
+		#div1{
+			width: 200px;
+			height: 200px;
+			position:relative;
+			background-color: #ccc;
+		}
+		#div2{
+			position:absolute;
+			width: 100px;
+			height: 100px;
+			top: 100px;
+			left: 100px;
+			background-color:red;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var div2=document.getElementById('div2');
+			//通过定位获取父节点
+	        alert(div2.offsetParent);	
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<div id="div2"></div>
+	</div>
+</body>
+</html>

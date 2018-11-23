@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<script type="text/javascript">
+
+
+     function CreatePerson(name,qq) //混合的构造函数/原型方式
+     {
+
+		this.name=name;
+		this.qq=qq;
+     };
+
+    
+         CreatePerson.prototype.showName=function(){
+         	alert(this.name);
+         }
+         CreatePerson.prototype.showQQ=function(){
+         	alert(this.qq);
+         }
+
+
+
+         
+         var obj = new CreatePerson('应华','123456');
+         var obj2 = new CreatePerson('华夏','654321');
+
+         obj.showName();
+         obj.showQQ();
+
+
+         obj2.showName();
+         obj2.showQQ();
+
+         alert(obj.showName()==obj2.showName());
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

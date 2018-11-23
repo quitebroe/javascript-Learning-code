@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片切换</title>
+	<style type="text/css">
+	
+        
+        .pr{
+        	position: relative;
+        	width:250px;
+        	height: 250px;
+        }
+
+	    img{
+			display: block;
+			width: 100%;
+		}
+        
+
+        .prev,.next{
+        	border: none;
+        	position: absolute;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            background: none;
+            outline: none;
+            color: #fff;
+            font-size: 22px;
+
+        }
+
+        .prev{
+        	left: 0;
+        	text-align: left;
+        }
+        .next{
+        	right: 0;
+        	text-align: right;
+        }
+	</style>
+	<script type="text/javascript">
+		
+	window.onload=function(){
+		var prev=document.getElementById('prev');
+		var next=document.getElementById('next');
+		var img=document.getElementById('img');
+		var title=document.getElementById('title');  
+		var titleArr=['图片1','图片2','图片3','图片4','图片5','图片6'];      
+        var imgArr=['avatar_1.jpg','avatar_2.jpg','avatar_3.jpg','avatar_4.jpg','avatar_5.jpg','user-avatar.jpg'];
+        var n=0;
+        next.onclick=function(){
+            n++;
+            //当N大于数组的时候
+            if (n>imgArr.length-1) {
+            	//当图片到达最后一张的时候，把N重置为0，从头开始继续切换，可以达到无限循环的目的
+                n=0;
+                //n=imgArr.length-1;
+            }
+
+            img.src='images/'+imgArr[n];
+            title.innerHTML=titleArr[n];
+            console.log(n);
+        }
+
+        prev.onclick=function(){
+        	n--;
+            //当N小于数组的时候
+            if (n<0) {
+            	//当图片到达最上一张的时候，默认给N一个当前数据的最大值，从最后一张开始继续切换
+            	n=imgArr.length-1;
+            	//n=0;
+            }
+
+            img.src='images/'+imgArr[n];
+            title.innerHTML=titleArr[n];
+            console.log(n);
+
+        }
+
+	}
+
+
+	</script>
+</head>
+<body>
+  <div class="pr">
+	  	<input type="button" id="prev" class="prev" name="prev" title="上一张" value="<">
+		<input type="button" id="next" class="next" name="next" title="下一张" value=">">
+		<img src="images/avatar_1.jpg" id="img">
+		<p id="title">图片1</p>
+  </div>	
+
+</body>
+</html>

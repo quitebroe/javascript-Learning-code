@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用面向对像实现的选项卡</title>
+
+	<style type="text/css">
+	    #div1{
+	    	width: 600px;
+	    	border: 1px solid #ddd;
+	    	height: 500px;
+	    }
+		#div1 input{
+			width: 33.333%;
+			background: #ddd;
+			color: #fff;
+			float: left;
+			border: none;
+			padding: 5px 0;
+		}
+		#div1 input.active:hover,
+		#div1 input:hover{
+			background: red;
+		}
+	    #div1 input.active{
+			background: red;
+		}	
+
+		#div1 div{
+			width: 100%;
+			height: 100%;
+			background: #fff;
+			display: none;
+		}
+	</style>
+
+
+	<script type="text/javascript">
+		/*
+           把面向过程的程序，改写成面向对像的形式
+              原则：不能有函数套函数，可以有全局变量
+           过程
+               onload  -> 构造函数
+               全局变量 -> 属性
+               函数 -> 方法
+            改错
+               this 事件 闭包 传参
+            对像与闭包
+               通过闭包传递this
+		*/
+       
+
+        //先写一个最简单的选项卡，用过程的方式
+        //在书写面向对像的时候。不能有函数套函数，所以这个时候，我们要把点击事件的函数移出onload这个函数外面去,做到函数没有套函数
+
+        //window.onload  初始化整个程序
+        //构造函数       初始化整个对像
+        //在这里，把window.onload干掉，改成构造函数 ，名称随意
+
+        window.onload=function(){
+            new tabSwitch('div1');
+        };
+
+
+
+        function tabSwitch(id){
+
+        var oDiv =document.getElementById(id);
+        this.aBtn =oDiv.getElementsByTagName('input');
+        this.aDiv =oDiv.getElementsByTagName('div');
+        
+	        for (var i = 0; i < this.aBtn.length; i++) {
+	        	this.aBtn[i].index=i;
+	        	this.aDiv[i].onclick=this.fnclick;
+	        };
+        
+        };
+
+
+       tabSwitch.prototype.fnclick=function(){
+    		for (var i = 0; i < this.aBtn.length; i++) {
+    			this.aBtn[i].className='';
+    			this.aDiv[i].style.display='none';
+    		}
+    		aBtn.className='active';
+    		this.aDiv[aBtn.index].style.display='block';
+    	};
+
+
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<input type="button" class="active" value="1" name="">
+		<input type="button" value="2" name="">
+		<input type="button" value="3" name="">
+		<div style="display: block;">1</div>
+		<div>2</div>
+		<div>3</div>
+	</div>
+</body>
+</html>

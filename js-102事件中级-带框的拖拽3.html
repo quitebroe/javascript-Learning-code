@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    #div1 {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+    }
+    .box{
+        border: 1px dashed black;
+        position: absolute;
+    }
+    </style>
+    <script type="text/javascript">
+    //鼠标按下
+    //鼠标抬起
+    //鼠标移动
+    window.onload = function() {
+        //console.log(window.screen.availWidth);
+        var oDiv = document.getElementById('div1');
+        //带虚框的，创建一个新的div
+        var oBox=document.createElement('div');
+
+        var disX = 0;
+        var disY = 0;
+        //alert(oDiv);
+
+        oDiv.onmousedown = function(ev) {
+            var oEvent = ev || event;
+            //pos=getpos(oEvent);
+            //鼠标的位置减去DIV的位置
+
+             myDashed();
+
+
+            if (oDiv.setCapture) {
+                disX = oEvent.clientX - oDiv.offsetLeft;
+                disY = oEvent.clientY - oDiv.offsetTop;
+                oDiv.onmousemove = mouseMove;
+                oDiv.onmouseup = mouseUp
+                //在IE7下使用事件捕获，确保所有的事件都指向DIV
+                oDiv.setCapture();
+                return false;
+            } else {
+                disX = oEvent.clientX - oDiv.offsetLeft;
+                document.onmousemove = mouseMove;
+                document.onmouseup = mouseUp
+                return false;
+            };
+        };
+
+
+             function myDashed(){
+
+                oBox.className='box';
+                //设置虚框的宽高和要拖动的DIV等同
+                oBox.style.width=oDiv.offsetWidth-2+'px';
+                oBox.style.height=oDiv.offsetHeight-2+'px';
+
+                oBox.style.left=oDiv.offsetLeft+'px';
+                oBox.style.top=oDiv.offsetTop+'px';
+
+                //把虚框插入到BODY当中 
+                document.body.appendChild(oBox);
+             }
+
+
+               function mouseMove(ev) {
+
+                    var oEvent = ev || event;
+                    var l = oEvent.clientX - disX;
+                    var t = oEvent.clientY - disY;
+                     
+                     var r=document.documentElement.clientWidth - oDiv.offsetWidth;
+                     var b=document.documentElement.clientHeight - oDiv.offsetHeight;
+
+                     if(l<0) l=0;
+                     if(l>r) l=r;
+                     if(t<0) t=0;
+                     if(t>b) t=b;
+
+
+                    oBox.style.left = l + 'px';
+                    oBox.style.top = t + 'px';
+                };
+
+                function mouseUp() {
+                    this.onmousemove = null;
+                    this.onmouseup = null;
+                     
+                    oDiv.style.left = oBox.offsetLeft+'px';
+                    oDiv.style.top = oBox.offsetTop + 'px';
+
+                    document.body.removeChild(oBox);
+                    //在使用了事件捕获之后，在鼠标抬起的时候。需要释放这个事件捕获，不然的话，无法进行任何操作
+                    if (oDiv.releaseCapture) {
+                       oDiv.releaseCapture();
+                    };
+                };
+
+
+
+    };
+    </script>
+</head>
+
+<body>
+    <div id="div1"></div>
+</body>
+
+</html>

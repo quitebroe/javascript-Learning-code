@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+         
+         //1构造函数也是函数  构造函数的第一个字母应该大写，
+         //2当然你小写也不会错，但这是行业标准，如果你准备加入这行
+         //3我们应该遵守这些行业标准写法
+         //4构造函数没有new Object
+         //5构造函数不需要引用返回，由系统自动完成操作
+         //6必须使 new 构造函数名（） 比如：new Hello() 这里的Hello 首字母也是大写的
+         //7必须使用 new 运算符
+
+
+
+
+		function Hello(username,userage){
+			this.username = username;
+			this.userage = userage;
+			this.sayby = function(){
+                 return this.username+'-'+this.userage+'运行中'
+			}
+		}
+
+
+		function Desk(username,userage){
+			this.username = username;
+			this.userage = userage;
+			this.sayby = function(){
+                 return this.username+'-'+this.userage+'运行中'
+			}
+		}
+
+
+	    var hello = new Hello('应煜鑫',35);
+	    var ss = new Hello('应煜鑫',35);
+	    // var desk = new Desk('我是桌子',44)
+	    // alert(hello instanceof Hello);
+	    // alert(hello.sayby())
+	    // alert(ss instanceof Hello);
+	    // alert(ss.username)
+	    // alert(desk.username)
+	    // alert(desk instanceof Hello)    //这里就可以分辩出它的对像是不是Hello
+	    // //相对于工厂模式，永远分不清楚对像谁是谁的情况，这种构造函数可以很好的区别开来
+        alert(hello.sayby()==ss.sayby());
+        alert(hello.sayby==ss.sayby);
+
+	    //对像冒充
+	    var o = new Object();
+	    Hello.call(o,'我告诉你我是对像冒充的了吧',33); //使用call方法，来使现对像冒充
+	    alert(o.sayby());
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

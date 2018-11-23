@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+     <style type="text/css">
+     	#box{
+     		width: 100px;
+     		height: 100px;
+     		background:red;
+     	}
+     </style>
+     <script type="text/javascript">
+     	
+     	window.onload=function(){
+     		var sx=document.getElementById('sx');
+     		var zhi=document.getElementById('zhi');
+     		var btn=document.getElementById('btn');
+     		var box=document.getElementById('box');
+     		btn.onclick=function(){
+                var sxname=sx.value;
+                var zhivalue=zhi.value;
+                //动态的属性和值
+                //可以输入任意的CSS属性来改变样式
+                //[]可以放属性变量和名称变量
+     			box.style[sxname]=zhivalue;
+     		}
+     	}
+
+     </script>
+</head>
+<body>
+	<p>	<input type="text" name="sx" id="sx" value="">
+	<input type="text" name="zhi" id="zhi" value="">
+	<input type="button" name="btn" id="btn" value="submit"></p>
+	<div id="box"></div>
+</body>
+</html>

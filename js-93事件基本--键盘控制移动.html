@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background:green;
+			position: absolute;
+		}
+	</style>
+
+	<script type="text/javascript">
+		document.onkeydown=function(ev){
+             var oEvent = ev||event;
+             var oDiv=document.getElementsByTagName('div')[0];
+             //如何解决卡顿的情况
+             //alert(oEvent.keyCode);
+             if (oEvent.keyCode==37) {
+             	oDiv.style.left=oDiv.offsetLeft-10+'px';
+             }else if (oEvent.keyCode==38) {
+             	oDiv.style.top=oDiv.offsetTop-10+'px';
+             }else if (oEvent.keyCode==39) {
+             	oDiv.style.left=oDiv.offsetLeft+10+'px';
+             }else if (oEvent.keyCode==40) {
+             	oDiv.style.top=oDiv.offsetTop+10+'px';
+             }
+
+		}
+	</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

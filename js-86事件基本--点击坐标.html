@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击</title>
+	<script type="text/javascript">
+		//event坐标
+		window.onload=function(){
+			document.onclick=function(ev){
+				//ie Chrome
+				//alert(event.clientX+','+event.clientY);
+
+				//ff //不支持IE6-8
+				//alert(ev.clientX+','+ev.clientY);
+				//获取event对像（兼容性写法）
+				var oEvent = ev||event;
+				alert(oEvent.clientX+','+oEvent.clientY);
+		
+			};
+		};
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

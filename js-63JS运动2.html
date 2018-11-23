@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	body{
+		padding: 0;
+		margin: 0;
+	}
+		#box{
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			background-color: red;
+			position: absolute;
+			left:0px;
+			/*
+			这里的left设置会影响运行是向左还是向右
+            根据下面的 speed中的1000为标准，小于1000向左
+            大于1000，向右 
+			*/
+			border: 1px solid #000;
+		}
+        
+        #bor{
+        	width: 1px;
+        	height: 600px;
+        	background-color: #000;
+        	left: 1000px;
+        	top: 0;
+        	position: absolute;
+        }
+        input[type='text']{
+        	width: 500px;
+        	display: block;
+        	margin: 10px;
+        }
+	</style>
+    <script type="text/javascript">
+    var timer = 'null';
+    //所谓速度越来越慢。就是距离大，速度也大，距离小。速度也变小
+    //换句话的意思。就是速度和距离成正比
+    //打个比方，当距离还有300的时候，有个10 ，当路离只有30的时候。我就希望速度只有1了。
+    function startMove(){
+    	box=document.getElementById('box');
+    	echo = document.getElementById('echo')
+    	offsetLeft = document.getElementById('offsetLeft')
+    	clearInterval(timer);
+    	timer = setInterval(function(){
+    		     //速度 = （目标值-当前BOX值）/缩放系数
+             var speed =(1000-box.offsetLeft)/10;
+             	//Math.ceil向上取整
+             	//Math.fo向上取整
+             	//当speed这个运动速度大度于的时候，向上取整，当小于0的时候，也就是负数的时候，向下取整
+             	//只要用了缓冲运动的时候。必须取整
+             	speed=speed>0?Math.ceil(speed):Math.floor(speed);
+	             
+	             //if (speed>0) {
+	             //	speed = Math.ceil(speed);
+	             //}else{
+	             //	speed = Math.floor(speed);
+	             //}
+             
+             echo.value = "speed速度变化："+speed;
+             offsetLeft.value =  "box.offsetLeft速度变化："+box.offsetLeft;
+
+             box.style.left=box.offsetLeft+speed+"px";
+             //box.style.left=box.offsetLeft;
+    	},30);
+    }
+
+    </script>
+</head>
+<body>
+	<h1>请注意观察运行数据变化</h1>
+	<input type="text" id="echo" value="">
+	<input type="text" id="offsetLeft" value="">
+	<input type="button" onclick="startMove()" value="开始" >
+<div id="box"></div>
+<div id="bor"></div>
+</body>
+</html>

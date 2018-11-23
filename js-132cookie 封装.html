@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function setCookie(name,value,iDay){
+			 var oDate=new Date();
+			 oDate.setDate(oDate.getDate()+iDay);
+            document.cookie=name+'='+value+';expires='+oDate;
+		};
+
+		function getCookie(name){
+			//把Cookie拆分成数组
+			var arr=document.cookie.split('; ');
+			//然后循环这个数组
+			for (var i = 0; i < arr.length; i++) {
+				//再次进行拆分
+				var arr2=arr[i].split('=');
+				if (arr2[0]==name) {
+					return arr2[1];
+				}
+			}
+			return '';
+		};
+
+
+		setCookie('name','应煜鑫',15);
+		setCookie('pass','123456',15);
+
+        //删除
+        function removeCookie(name){
+        	setCookie(name,1,-1);
+        }
+        
+        //删除
+        removeCookie('name');
+
+        alert(getCookie('name'))
+        alert(getCookie('pass'))
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
