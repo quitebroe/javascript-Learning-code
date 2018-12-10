@@ -23,8 +23,9 @@
                 var file = $('#upload_file')[0].files[0];
                 reader = new FileReader();  //本地预览
                 reader.onload = function(){
-                    // var ImgFileSize = reader.result.substring(reader.result.indexOf(",") + 1).length;//截取base64码部分（可选可不选，需要与后台沟通）
+                    var ImgFileSize = reader.result.substring(reader.result.indexOf(",") + 1).length;//截取base64码部分（可选可不选，需要与后台沟通）
                     $('#base64_output').val(reader.result);
+                    $('body').append('<img src='+reader.result+' width="150" height="">');
                     console.log(reader.result)
                 }
                 reader.readAsDataURL(file);    //Base64
