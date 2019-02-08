@@ -10,12 +10,14 @@
        body{
            background: #222;
            color:#eee;
-           font-size: 24px;
+           font-size: 14px;
            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+           text-align: center;
        }
        em{
            font-style: normal;
-           color:orange
+           color:orange;
+           display: block;
        }
     </style>
     <script>
@@ -27,7 +29,7 @@
          }
           
 
-         function countDownsecinds(){
+         function countDownsecinds(times){
             var countDown,
              endTime,
              nowTime,
@@ -37,7 +39,7 @@
              seconds = 0,
              t;
 
-             endTime = new Date('2019-02-14 8:30:00');
+             endTime = new Date(times);
              nowTime = new Date();
              countDown = endTime.getTime()-nowTime.getTime();
              if(countDown>=0){
@@ -58,17 +60,20 @@
              oEm.innerHTML = t;
              console.log(t)
          }   
-         countDownsecinds();
-         setInterval(countDownsecinds,1000)
+         countDownsecinds('2019-02-14 8:30:00');
+         setInterval(function(){
+            countDownsecinds('2019-02-14 8:30:00');
+         },1000)
         }
     </script>
 </head>
 
 <body>
-    <div id="date">
-         距离<span></span>交作业的时间
-         还有<em></em>
-    </div>
+    <h1 id="date">
+         <p>距离</p>
+         <span></span>
+         <em></em>
+    </h1>
 </body>
 
 </html>
