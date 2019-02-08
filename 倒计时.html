@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       body{
+           background: #222;
+           color:#eee;
+           font-size: 24px;
+           font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+       }
+       em{
+           font-style: normal;
+           color:orange
+       }
+    </style>
+    <script>
+        window.onload=function(){
+        
+         function zero(n){
+           n = n<10?'0'+n:n;
+           return n
+         }
+          
+
+         function countDownsecinds(){
+            var countDown,
+             endTime,
+             nowTime,
+             day = 0,
+             hours = 0,
+             minutes = 0,
+             seconds = 0,
+             t;
+
+             endTime = new Date('2019-02-14 8:30:00');
+             nowTime = new Date();
+             countDown = endTime.getTime()-nowTime.getTime();
+             if(countDown>=0){
+                day=zero(Math.floor(countDown/1000/60/60/24));
+                hours=zero(Math.floor(countDown/1000/60/60%24));
+                minutes=zero(Math.floor(countDown/1000/60%60));
+                seconds=Math.floor(countDown/1000%60);
+                t = day+"天"+hours+"时"+minutes+"分"+zero(seconds--)+"秒";
+             }else{
+                 t = '已经超过截止时间'
+             }
+             
+            //  document.body.innerHTML = t;
+             var oDateDiv = document.getElementById('date');
+             var oSpan = oDateDiv.getElementsByTagName('span')[0];
+             var oEm = oDateDiv.getElementsByTagName('em')[0];
+             oSpan.innerHTML = endTime.toLocaleString();
+             oEm.innerHTML = t;
+             console.log(t)
+         }   
+         countDownsecinds();
+         setInterval(countDownsecinds,1000)
+        }
+    </script>
+</head>
+
+<body>
+    <div id="date">
+         距离<span></span>交作业的时间
+         还有<em></em>
+    </div>
+</body>
+
+</html>
