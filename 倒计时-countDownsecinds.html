@@ -19,6 +19,15 @@
            color:orange;
            display: block;
        }
+       input{
+           height: 40px;
+           line-height: 40px;
+           border-radius: 5px;
+           width:200px;
+           text-align: center;
+           outline: none;
+           border:1px solid seagreen
+       }
     </style>
     <script>
         window.onload=function(){
@@ -59,18 +68,33 @@
              oSpan.innerHTML = endTime.toLocaleString();
              oEm.innerHTML = t;
              document.title = t;
-             console.log(t)
+//              console.log(t)
          }   
-         countDownsecinds('2019-02-14 8:30:00');
-         setInterval(function(){
-            countDownsecinds('2019-02-14 8:30:00');
-         },1000)
+
+         var local,closeTimer;
+         local = document.getElementById('local');
+        local.onblur=local.onfocus=function(){
+            var locValue
+             if(local.value){
+                locValue = local.value;
+             }else{
+                locValue = '2019-05-14 8:30:00';
+                local.value = locValue;
+             }
+             countDownsecinds(locValue);
+             clearInterval(closeTimer)
+             closeTimer = setInterval(function(){
+                countDownsecinds(locValue);
+            },1000)
+         }
+
         }
     </script>
 </head>
 
 <body>
-    <h1 id="date">
+    <input type="text" id="local" autofocus value="2019-02-14 8:30:00">
+    <h1 id="date"> 
          <p>距离</p>
          <span></span>
          <em></em>
