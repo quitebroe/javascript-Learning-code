@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" id="link" href="style.css">
+</head>
+<body>
+    <button>样式1</button>
+    <button>样式2</button>
+
+    <script>
+        var btn = document.getElementsByTagName('button')
+        var link = document.getElementById('link')
+        for(var i =0;i<btn.length;i++){
+            btn[i].onclick=function(){
+                if(this.innerText === '样式1'){
+                    link.setAttribute('href','style.css')
+                }else if(this.innerText === '样式2'){
+                    link.setAttribute('href','style2.css')
+                }
+            }
+        }
+    </script>
+</body>
+</html>

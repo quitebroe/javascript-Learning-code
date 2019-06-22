@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       input{
+           display: block;
+       }
+    </style>
+</head>
+<body>
+    <button id="btnAll">全选</button>
+    <button id="btnCancel">取消</button>
+    <form action="" id="form">
+        <input type="checkbox" value="1">
+        <input type="checkbox" value="2">
+        <input type="checkbox" value="3">
+        <input type="checkbox" value="4">
+        <input type="checkbox" value="5">
+        <input type="checkbox" value="6">
+        <input type="checkbox" value="7">
+        <input type="checkbox" value="8">
+    </form>
+
+      <script>
+         var oBtnAll = document.getElementById('btnAll')
+         var oBtnCancel = document.getElementById('btnCancel')
+         var oFrom = document.getElementById('form')
+         var aInput = oFrom.getElementsByTagName('input')
+         
+         oBtnAll.onclick = function(){
+            for (var index = 0; index < aInput.length; index++) {
+                var element = aInput[index];
+                element.checked = true;
+            }
+         }
+
+
+         oBtnCancel.onclick = function(){
+            for (var index = 0; index < aInput.length; index++) {
+                var element = aInput[index];
+                element.checked = false;
+            }
+         }
+
+      </script>
+
+</body>
+</html>

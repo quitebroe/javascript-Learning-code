@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            width: 1000px;
+            margin: 50px auto;
+            height: 200px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            background: red;
+            position: relative;
+        }
+
+        #app ul {
+            position: absolute;
+            list-style: none;
+            float: left;
+        }
+
+        #app li {
+            width: 300px;
+            float: left;
+            height: 200px;
+            margin-right: 20px;
+        }
+
+        #app li img {
+            height: 100%;
+            margin: 0 auto;
+            display: block;
+        }
+
+        #app button.prev {
+            position: absolute;
+            z-index: 99999;
+            top: 0px;
+            left: 0;
+            background: blue
+        }
+
+        #app button.next {
+            position: absolute;
+            z-index: 99999;
+            top: 0px;
+            right: 0;
+            background: red
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'imgList.json', true);
+        xhr.send()
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var imgArr = JSON.parse(this.responseText)
+
+                var app = document.getElementById('app');
+                var ul = document.createElement('ul'); //createElement 在内存中创建元素
+
+                var li = null,
+                    width, closeTime = null;
+                var speed = 2;
+                app.appendChild(ul) //appendChild  在app这个元素下面创建这个元素到DOM结构
+
+                imgArr.forEach(function (el, index) {
+                    li = document.createElement('li')
+                    li.innerHTML = '<img src=' + el.url + ' alt=' + el.title + '>'
+                    ul.appendChild(li);
+
+                })
+                var li = app.getElementsByTagName('li');
+                width = parseInt(getComputedStyle(li[0], null).width) + 20;
+                console.log(width)
+                ul.innerHTML = ul.innerHTML + ul.innerHTML
+
+
+                var prev = document.createElement('button')
+                var next = document.createElement('button')
+                prev.setAttribute('class', 'prev')
+                prev.innerHTML = 'prev'
+                app.appendChild(prev)
+                next.setAttribute('class', 'next')
+                next.innerHTML = 'next'
+                app.appendChild(next)
+
+
+                ul.style.width = width * (imgArr.length * 2) + 'px';
+                // console.log(ul.offsetWidth)
+
+                clearInterval(closeTime)
+                closeTime = setInterval(function () {
+
+                    if (ul.offsetLeft < -ul.offsetWidth / 2) {
+                        ul.style.marginLeft = 0;
+                    }
+
+
+                    if (ul.offsetLeft > 0) {
+                        ul.style.marginLeft = -ul.offsetWidth / 2 + 'px';
+                    }
+
+
+                    ul.style.marginLeft = ul.offsetLeft + speed + 'px';
+                }, 30);
+
+                prev.onclick = function () {
+                    speed = -2
+                }
+
+                next.onclick = function () {
+                    speed = 2
+                }
+
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>

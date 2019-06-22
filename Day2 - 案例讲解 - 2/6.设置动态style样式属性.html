@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <input type="text" name="attrName" id="attrName" value="" placeholder="请输入您的属性">
+        <input type="text" name="attrPrice" id="attrPrice" value="" placeholder="请输入您的属性值">
+        <button id="submit" type="button">设置</button>
+        <div id="box"></div>
+    </div>
+
+    <script>
+        var attrName = document.getElementById('attrName')
+            attrPrice = document.getElementById('attrPrice'),
+            submit = document.getElementById('submit'),
+            box = document.getElementById('box');
+            submit.onclick=function(){
+                var attrNameValue = attrName.value,
+                    attrPriceValue= attrPrice.value
+                    // 动态的属性和值
+                    // 可以输入任何的css属性来改变样式
+                    box.style[attrNameValue] = attrPriceValue
+                    //[]可以放属性变量
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var i = 0;
+        function setStyle(that,box, color1, color2) {
+            if (i % 2 == 1) {
+                box.style.background = color1
+            } else {
+                box.style.background = color2
+            }
+            i++;
+            that.style.background = "red";
+            that.style['font-size'] = "16px"
+        }
+
+
+
+        window.onload = function () {
+            var oBtn = document.getElementById('btn');
+            var oBtn2 = document.getElementById('btn2');
+            var oBtn3 = document.getElementById('btn3');
+           
+            
+            oBtn.onclick=function(){
+                setStyle(oBtn,document.getElementById('div1'), 'red', 'blue')
+            }
+            oBtn2.onclick=function(){
+                setStyle(oBtn2,document.getElementById('div2'), '#000', '#ddd')
+            }
+            oBtn3.onclick=function(){
+                setStyle(oBtn3,document.body, 'orange', 'yellowgreen')
+            }
+            
+            
+            
+        }
+    </script>
+</head>
+
+<body>
+    <div id="div1">div1</div>
+    <div id="div2">div2</div>
+    <button id="btn" type="button">控制div1</button>
+    <button id="btn2" type="button">控制div2</button>
+    <button id="btn3" type="button">控制body</button>
+</body>
+
+</html>

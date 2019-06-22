@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+         #tab{
+             width:500px;
+             height:400px;
+             overflow: hidden;
+             border:1px solid #ddd;
+             margin:25px auto;
+             font-size: 14px;
+         }
+
+         #tab header{
+             display: flex;
+             justify-content: space-between
+             
+         }
+         #tab header span{
+             width:25%;
+             text-align: center;
+             cursor: pointer;
+             height:35px;
+             line-height: 35px;
+             background: #eee;
+         }
+         #tab header span.active{
+             background:red;
+             color:#eee
+         }
+
+         #tab section{
+             padding:5px;
+         }
+         #tab section ul{
+             margin:0;
+             padding:0;
+             list-style: none;
+             display: none
+         }
+    </style>
+</head>
+
+<body>
+    <div id="tab">
+        <header>
+            <span class="active">新闻</span>
+            <span>美女</span>
+            <span>美食</span>
+            <span>广厦</span>
+        </header>
+        <section>
+            <ul style="display: block;">
+                <li>新闻</li>
+            </ul>
+            <ul>
+                <li>美女</li>
+            </ul>
+            <ul>
+                <li>美食</li>
+            </ul>
+            <ul>
+                <li>广厦</li>
+            </ul>
+        </section>
+    </div>
+    <script>
+       var oTab = document.getElementById('tab');
+       var aSpan = oTab.getElementsByTagName('span');
+       var aUl =  oTab.getElementsByTagName('ul');
+
+
+       for(var i = 0;i<aSpan.length ;i++){
+          aSpan[i].in = i;
+          aSpan[i].onclick=function(){
+              for(var j = 0;j<aSpan.length;j++){
+                 aSpan[j].className = '';
+                 aUl[j].style.display = 'none'
+              }
+              this.className = 'active'
+              aUl[this.in].style.display = 'block';
+          }
+         
+       }
+    </script>
+</body>
+
+</html>

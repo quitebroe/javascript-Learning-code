@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+         #tab{
+             width:500px;
+             height:400px;
+             overflow: hidden;
+             border:1px solid #ddd;
+             margin:25px auto;
+             font-size: 14px;
+             position: relative;
+         }
+
+         #tab header{
+             position: absolute;
+             bottom:0;
+             width:100%;
+             left:0;
+             right:0;
+             display: flex;
+             justify-content: center
+             
+         }
+         #tab header span{
+             text-align: center;
+             cursor: pointer;
+             text-indent: -9999px;
+             background:#000;
+             width:15px;
+             height:15px;
+             margin:15px;
+             border-radius: 50%;
+         }
+         #tab header span.active{
+             background:red;
+             color:#eee
+         }
+
+         #tab section{
+             padding:5px;
+             position: relative;
+         }
+         #tab section a{
+             position: absolute;
+             z-index: 9;
+             top:0;
+             bottom:0;
+             display: block;
+             height:365px;
+             line-height: 365px;
+             width:50px;
+             text-align: center;
+             background: rgba(1,1,1,.5)
+         }
+         #tab section a.prev{
+             left:0
+         }
+         #tab section a.next{
+             right:0
+         }
+         #tab section ul{
+             margin:0;
+             padding:0;
+             text-align: center;
+             list-style: none;
+             display: none
+         }
+    </style>
+</head>
+
+<body>
+    <div id="tab">
+        <header>
+            <span class="active">新闻</span>
+            <span>美女</span>
+            <span>美食</span>
+            <span>广厦</span>
+        </header>
+        <section>
+            <a href="javascript:;" class="prev">prev</a>
+            <a href="javascript:;" class="next">next</a>
+            <ul style="display: block;">
+                <li>新闻</li>
+            </ul>
+            <ul>
+                <li>美女</li>
+            </ul>
+            <ul>
+                <li>美食</li>
+            </ul>
+            <ul>
+                <li>广厦</li>
+            </ul>
+        </section>
+    </div>
+    <script>
+            var oTab = document.getElementById('tab');
+            var aSpan = oTab.getElementsByTagName('span');
+            var aUl =  oTab.getElementsByTagName('ul');
+            
+            var oPrev = oTab.getElementsByClassName('prev')[0]
+            var oNext = oTab.getElementsByClassName('next')[0]
+       
+
+
+
+
+            var now = 0;
+            for(var i = 0;i<aSpan.length ;i++){
+                aSpan[i].in = i;
+                aSpan[i].onclick=function(){
+                    now = this.in;
+                    show()
+               }
+            }
+
+
+       function show(){
+            for(var i = 0;i<aSpan.length;i++){
+                aSpan[i].className = "";
+                aUl[i].style.display = "none"
+            }
+            aSpan[now].className = "active"
+            aUl[now].style.display = "block"
+       }
+
+
+       oPrev.onclick=function(){
+             console.log(now--)
+             if(now<0){
+                // alert('已经到达第一张了')
+                now = aSpan.length-1;
+            }
+             show()
+       }
+
+
+       oNext.onclick=function(){
+            console.log(now++)
+            if(now>aSpan.length-1){
+                // alert('已经到达最一张了')
+                now = 0;
+            }
+            show()
+       }
+
+    var closeTime = null
+    //    //show()
+    function init(){
+       
+       clearInterval(closeTime)
+       closeTime = setInterval(function(){
+            now++;
+            if(now == aSpan.length){
+                now = 0;
+            }
+            show()
+       },1000)
+    }
+
+    init()
+
+       oTab.onmouseover = function(){
+           clearInterval(closeTime)   
+       }
+
+
+       oTab.onmouseout = function(){
+          init()
+       }
+
+       
+    </script>
+</body>
+
+</html>

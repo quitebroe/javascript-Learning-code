@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>留言本</title>
+   <style>
+      .wrap{
+          width:800px;
+          margin:120px auto;
+          border:1px solid #ddd;
+          font-size: 16px;
+      }
+      form{
+          box-shadow: 2px 2px 5px #777;
+          display: block;
+      }
+      form label{
+          display: flex;
+          justify-content: space-between;
+      }
+      form label input,
+      form label button{
+          border:none;
+          line-height: 35px;
+          height:35px;
+          outline: none;
+      }
+      form label input{
+          width:calc(100% - 100px);
+          text-indent: 2em;
+          height:33px;
+      }
+      form label button{
+          width:100px;
+          background: darkred;
+          color:#fff
+      }
+      #look{
+          min-height:300px;
+          padding:5px 10px;
+          border:1px solid #ddd;
+      }
+      #success{
+          text-align: center;
+      }
+   </style>
+</head>
+<body>
+    <h1 id="success"></h1>
+   <div class="wrap">
+        <form id="add">
+            <label for="content">
+                <input type="text" name="content" id="content" placeholder="请输入一句话，表示现在的心情">
+                <button type="button">留言</button>
+            </label>
+        </form>
+        <div id="look">
+        </div>
+   </div>
+
+
+   <script>
+        var oAdd = document.getElementById('add');
+        var oContent = oAdd.getElementsByTagName('input')[0];
+        var oButton = oAdd.getElementsByTagName('button')[0];
+        var oLook = document.getElementById('look');
+        var success = document.getElementById('success');
+        oButton.onclick = function(){
+            oLook.innerHTML = '<p>'+oContent.value+'</p>' + oLook.innerHTML ;
+            oContent.value = ''
+            success.innerHTML = '发布成功'
+        }
+   
+   </script>
+</body>
+</html>

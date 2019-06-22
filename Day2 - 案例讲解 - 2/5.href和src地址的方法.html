@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+         window.onload = function(){
+            var img = document.getElementsByTagName('img');
+            var link = document.getElementsByTagName('a');
+            
+            // img[0].src = 'images/map.jpg';
+            // img[1].src = 'images/1.jpg';
+
+            img[0].setAttribute('src','images/map.jpg')
+            img[1].setAttribute('src','images/1.jpg')
+
+            console.log(img[0].src === img[0].getAttribute('src'))  //flase
+            // img[0].src //得到的是完整的路径地址
+            // img[0].getAttribute('src')//得到的是相对路径地址，就是说。、src里面写的是什么。出现的就是什么
+            console.log(link[0].href === link[0].getAttribute('href'))  //true
+            console.log(link[1].href , link[1].getAttribute('href'))  //false
+         }  
+    </script>
+</head>
+<body>
+    <img src="images/1.jpg" alt="1">
+    <img src="images/map.jpg" alt="map" class="a">
+    <p><a href="https://www.baidu.com/">baidu</a></p>
+    <p><a href="1.html">baidu</a></p>
+</body>
+</html>

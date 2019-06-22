@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       input{
+           display: block;
+       }
+    </style>
+</head>
+<body>
+    <button id="btnAll">全选</button>
+    <form action="" id="form">
+        <input type="checkbox" value="1">
+        <input type="checkbox" value="2">
+        <input type="checkbox" value="3">
+        <input type="checkbox" value="4">
+        <input type="checkbox" value="5">
+        <input type="checkbox" value="6">
+        <input type="checkbox" value="7">
+        <input type="checkbox" value="8">
+    </form>
+
+      <script>
+         var oBtnAll = document.getElementById('btnAll')
+         var oFrom = document.getElementById('form')
+         var aInput = oFrom.getElementsByTagName('input')
+         var checked = null;
+         oBtnAll.onclick = function(){
+            if(this.innerText === '全选'){
+               checked = true
+               this.innerText = '取消';
+            }else{
+               checked = false
+               this.innerText = '全选'
+            }
+            for (let index = 0; index < aInput.length; index++) {
+                const element = aInput[index];
+                element.checked = checked
+            }
+
+         }
+
+      </script>
+
+</body>
+</html>
