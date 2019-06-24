@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="ajax.js"></script>
+</head>
+<body>
+    <form action="">
+            <input type="text" id="name" placeholder="姓名">
+            <input type="text" id="height" placeholder="身高">
+            <button type="button">添加数组</button>
+    </form>
+    
+    <div id="a"></div>
+
+    <script>
+
+         var btn = document.getElementsByTagName('button')[0];
+         var arr = [];
+         btn.onclick=function(){
+            var fromData = {"name":document.getElementById('name').value,"height":document.getElementById('name').value}
+            arr.push(fromData);
+            // alert(fromData)
+            console.log(arr,fromData)
+         }
+
+        ajax({
+            methods:"get",
+            url:"2.php",
+            success:function(response){
+               console.log(response)
+            }
+        })
+         
+
+         
+        </script>
+</body>
+</html>
